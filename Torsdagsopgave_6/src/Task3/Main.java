@@ -1,18 +1,20 @@
 package Task3;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
         ArrayList<Person> persons = new ArrayList<>();
 
+        /*
+
         // Student 1
-        ArrayList<String> passedCoursesStudent1 = new ArrayList<>();
-        passedCoursesStudent1.add("Java 1.0");
-        persons.add(new Student("Asim", passedCoursesStudent1));
+        ArrayList<String> passedCoursesStudent = new ArrayList<>();
+        passedCoursesStudent.add("Java 1.0");
+        persons.add(new Student("Asim", passedCoursesStudent));
 
         // Student 2
         ArrayList<String> passedCoursesStudent2 = new ArrayList<>();
@@ -32,8 +34,16 @@ public class Main {
         canTeachTeacher2.add("Java 1.0");
         persons.add(new Teacher("Signe", canTeachTeacher2));
 
+        */
 
-        for (int i = 0; i < persons.size(); i++) {
+        persons.add(new Student("Asim", new ArrayList<>(Arrays.asList("Java 1.0"))));
+        persons.add(new Student("Johan", new ArrayList<>()));
+        persons.add(new Student("Lasse", new ArrayList<>(Arrays.asList("Java 1.0"))));
+        persons.add(new Teacher("Tess", new ArrayList<>()));
+        persons.add(new Teacher("Signe", new ArrayList<>(Arrays.asList("Java 1.0"))));
+                
+
+    /*    for (int i = 0; i < persons.size(); i++) {
             boolean added = persons.get(i).addCourse("Java 1.0");
             if (!added) {
                 Person person = persons.get(i);
@@ -52,5 +62,15 @@ public class Main {
                 }
             }
         }
+
+     */
+
+        for (Person person : persons) {
+            boolean added = person.addCourse("Java 1.0");
+            String role = person instanceof Student ? "kan godt tage" : "kan godt undervise i";
+            String alreadyDone = person instanceof Student ? "har allerede bestået dette kursus." : "kan ikke undervise i dette fag.";
+            System.out.println(person.getName() + " " + (added ? role : alreadyDone) + " dette kursus.");
+        }
+
     }
 }
