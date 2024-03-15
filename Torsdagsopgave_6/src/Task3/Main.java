@@ -41,7 +41,7 @@ public class Main {
         persons.add(new Student("Lasse", new ArrayList<>(Arrays.asList("Java 1.0"))));
         persons.add(new Teacher("Tess", new ArrayList<>()));
         persons.add(new Teacher("Signe", new ArrayList<>(Arrays.asList("Java 1.0"))));
-                
+
 
     /*    for (int i = 0; i < persons.size(); i++) {
             boolean added = persons.get(i).addCourse("Java 1.0");
